@@ -1,29 +1,36 @@
-<h3>Create User</h3>
-<div [hidden]="submitted" style="width: 100%;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="user_name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="user.user_name" name="name">
-    </div>
+<h3 class="text-white">Create User</h3>
+<div class="bg-secondary rounded " style="border-radius: 5px; ">
+  <div [hidden]="submitted" style="width: 100%;" >
+    <form (ngSubmit)="onSubmit()" action="page_submission_URL" method="POST" ngNativeValidate class="shadow p-3 mb-5 bg-body" style="background-color: cadetblue;">
+        <div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" pattern="[a-z A-Z]+" [(ngModel)]="user.user_name" name="name" oninvalid="setCustomValidity('Name can only be alphabets')" required placeholder="Enter Name" onchange="try{setCustomValidity('')}catch(e){}"/>
+            
+          </div>
+    
+        <div class="form-group">
+          <label for="user_name">Email Id</label>
+          <input type="email" class="form-control" id="email" required [(ngModel)]="user.user_email" name="email" required placeholder="Enter E-Mail" oninvalid="setCustomValidity('Enter a valid email-id')" onchange="try{setCustomValidity('')}catch(e){}"/>
+        </div>
+    
+        <div class="form-group">
+          <label for="user_name">Phone number</label>
+          <input type="text" class="form-control" id="phone"  oninvalid="setCustomValidity('Enter a valid 10 digit number ')" required [(ngModel)]="user.user_phone" name="phone" pattern="[1-9]{1}[0-9]{9}" required placeholder="Enter Phone Number" onchange="try{setCustomValidity('')}catch(e){}"/>
+        </div>
+        <div class="form-group">
+          <label for="user_name">Age</label>
+          <input type="text" pattern="[1-9]|[1-9][0-9]|[1][0-4][0-9]|150" class="form-control" id="age" oninvalid="setCustomValidity('Age must be in between 1-150')" required [(ngModel)]="user.user_age" name="age"  placeholder="Enter Age" onchange="try{setCustomValidity('')}catch(e){}"/>
+        </div>
+        <div class="form-group">
+            <label for="user_name">Status</label>
+            <input type="text" class="form-control" id="status" required [(ngModel)]="user.user_status" name="status" required placeholder="Enter Status"/>
+          </div>
+    
+        <button class="btn btn-success">Submit</button>
+        </div>
+    </form>
 
-    <div class="form-group">
-      <label for="user_name">Email Id</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="user.user_email" name="email">
-    </div>
-
-    <div class="form-group">
-      <label for="user_name">Phone number</label>
-      <input type="text" class="form-control" id="phone" required [(ngModel)]="user.user_phone" name="phone">
-    </div>
-    <div class="form-group">
-      <label for="user_name">Age</label>
-      <input type="text" class="form-control" id="age" required [(ngModel)]="user.user_age" name="age">
-    </div>
-    <div class="form-group">
-        <label for="user_name">Status</label>
-        <input type="text" class="form-control" id="status" required [(ngModel)]="user.user_status" name="status">
-      </div>
-
-    <button class="btn btn-success">Submit</button>
-  </form>
+    
+  </div>
 </div>

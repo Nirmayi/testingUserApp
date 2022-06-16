@@ -1,18 +1,20 @@
-<div class="panel panel-success">
-    <div class="panel-heading text-align:center">
+<div class="panel panel-success" >
+    <div class="panel-heading text-align:center ">
       <h2>Employee List</h2>
     </div>
     <div class="panel-body">
-      <table cellspacing="0" width="100%">
+      <table datatable class="table row-border hover" *ngIf="this.temp" cellspacing="0" width="100%">
 
         <thead>
           <tr>
-              <th>ID</th>
-            <th >Name</th>
-            <th >Email</th>
-            <th >Department</th>
-            <th >Phone</th>
-            <th>Actions</th>
+            <th data-column="user_id" class="num">Id</th>
+              <th data-column="user_name" >Name</th>
+              <th data-column="user_email" >Email</th>
+              <th data-column="user_phone" >Phone</th>
+              <th data-column="user_age"  class="num">Age</th>
+              <th data-column="created_on"  class="num">created on</th>
+              <th data-column="user_status" >Status</th>
+              <th>Actions</th>
           </tr>
         </thead>
         <tbody>

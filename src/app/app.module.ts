@@ -10,6 +10,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserReadComponent } from './user/user-read/user-read.component';
 import { UserUpdateComponent } from './user/user-update/user-update.component';
 import { User } from './model/user.model';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { User } from './model/user.model';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    DataTablesModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
